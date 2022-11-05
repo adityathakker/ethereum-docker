@@ -1,7 +1,7 @@
 version: '3'
 services:
   eth:
-    container_name: geth-miner
+    container_name: geth-dev
     build: monitored-geth-client
     restart: on-failure
     links:
@@ -12,10 +12,8 @@ services:
       - ./files/genesis.json:/root/files/genesis.json:ro
       - ./files/keystore:/root/.ethereum/devchain/keystore:rw
       - /etc/localtime:/etc/localtime:ro
-    command: '--dev --dev.period 10'
+    command: '--dev --dev.period 13 --http --http.api eth,web3,personal,net --http.corsdomain "*"'
     ports:
-      - "30303:30303"
-      - "30303:30303/udp"
       - "8545:8545"
   netstats:
     build: eth-netstats
