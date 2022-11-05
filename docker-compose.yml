@@ -2,10 +2,7 @@ version: '3'
 services:
   eth:
     container_name: geth-dev-chain
-    build: monitored-geth-client
-    restart: on-failure
-    links:
-      - netstats
+    build: geth-client
     entrypoint: /root/start.sh
     volumes:
       - ./files/password:/root/files/password:ro
