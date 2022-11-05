@@ -9,8 +9,7 @@
     "constantinopleBlock": 0,
     "petersburgBlock": 0,
     "istanbulBlock": 0,
-    "berlinBlock": 0,
-    "ethash": {}
+    "berlinBlock": 0
   },
   "difficulty": "1",
   "gasLimit": "8000000",
