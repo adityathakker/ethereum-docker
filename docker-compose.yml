@@ -3,7 +3,7 @@ services:
   bootstrap:
     build: monitored-geth-client
     restart: on-failure
-    container_name: bootstrap
+    container_name: geth-bootstrap
     hostname: bootstrap
     links:
       - netstats
@@ -19,6 +19,7 @@ services:
       - "30303:30303/udp"
       - "8545:8545"
   eth:
+    container_name: geth-miner
     build: monitored-geth-client
     restart: on-failure
     links:
@@ -34,7 +35,7 @@ services:
   netstats:
     build: eth-netstats
     restart: on-failure
-    container_name: netstats
+    container_name: geth-netstats
     environment:
       - WS_SECRET=eth-net-stats-secret
     volumes:
