@@ -10,10 +10,7 @@
     "petersburgBlock": 0,
     "istanbulBlock": 0,
     "berlinBlock": 0,
-    "clique": {
-      "period": 5,
-      "epoch": 30000
-    }
+    "ethash": {}
   },
   "difficulty": "1",
   "gasLimit": "8000000",
