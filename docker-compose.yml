@@ -11,3 +11,6 @@ services:
       - /etc/localtime:/etc/localtime:ro
     ports:
       - "8545:8545"
+      - "8546:8546"
+      - "8547:8547"
+      - "30303:30303"
