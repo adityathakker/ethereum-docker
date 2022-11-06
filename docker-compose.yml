@@ -1,9 +1,9 @@
 version: '3'
 services:
-  eth:
-    container_name: geth-dev-chain
-    build: geth-client
-    entrypoint: /root/start.sh
+  geth:
+    image: ethereum/client-go
+    container_name: geth-dev
+    command: '--dev --datadir /root/.ethereum/devchain --http --http.addr "0.0.0.0" --http.corsdomain="*" --http.api web3,eth,debug,personal,net --password /root/files/password'
     volumes:
       - ./files/password:/root/files/password:ro
       - ./files/genesis.json:/root/files/genesis.json:ro
@@ -14,3 +14,5 @@ services:
       - "8546:8546"
       - "8547:8547"
       - "30303:30303"
+    networks:
+      - nginxproxymanager_default
